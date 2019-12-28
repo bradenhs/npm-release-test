@@ -11,7 +11,8 @@ async function main() {
   await pulls.createComment({
     pull_number: github.context.payload.pull_request.number,
     body: "Test Comment",
-    commit_id: github.context.sha    
+    commit_id: github.context.sha,
+    owner: 'bradenhs'
   })
 
   console.log("Did comment")
