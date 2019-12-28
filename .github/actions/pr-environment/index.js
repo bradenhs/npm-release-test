@@ -1,8 +1,17 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-try {
-  console.log(github.context.payload);
-} catch (error) {
+main().catch(error => {
   core.setFailed(error.message);
+})
+
+async function main() {
+  const { pulls } = new github.GitHub();
+
+  await pulls.createComment({
+    number: github.context.payload.pull_request.number,
+    body: "Test Comment"
+  })
+
+  console.log("Did comment")
 }
