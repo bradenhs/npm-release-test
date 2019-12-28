@@ -1,9 +1,9 @@
-name: PR Environment
+name: pr environment
 
 on: pull_request
 
 jobs:
-  pr:
+  pr-environment:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
