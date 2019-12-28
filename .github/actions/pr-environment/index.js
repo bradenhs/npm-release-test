@@ -9,7 +9,7 @@ async function main() {
   const { pulls } = new github.GitHub();
 
   await pulls.createComment({
-    number: github.context.payload.pull_request.number,
+    pull_number: github.context.payload.pull_request.number,
     body: "Test Comment"
   })
 
