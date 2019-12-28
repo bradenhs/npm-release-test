@@ -3,8 +3,16 @@ name: PR Workflow
 on: push
 
 jobs:
-  test:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - uses: ./.github/actions/test.js
+    - name: Hello world action step
+      id: hello
+      uses: actions/hello-world-javascript-action@v1
+      with:
+        who-to-greet: 'Hi'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
 
