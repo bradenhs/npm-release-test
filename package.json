@@ -2,9 +2,6 @@
   "name": "@bradenhs/npm-release-test",
   "version": "0.0.1",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "unit-test": "echo \"unit test\"",
     "integration-test": "echo \"integration test\"",

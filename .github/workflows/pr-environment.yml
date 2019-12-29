@@ -10,7 +10,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
-        registry: https://npm.pkg.github.com/bradenhs
+        registry: https://npm.pkg.github.com
     - run: npm publish --tag ${{github.sha}}
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
