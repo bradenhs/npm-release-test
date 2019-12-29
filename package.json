@@ -1,7 +1,6 @@
 {
   "name": "npm-release-test",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "unit-test": "echo \"unit test\"",
@@ -12,5 +11,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bradenhs/npm-release-test.git"
-  }
+  },
+  "files": ["index.js"]
 }

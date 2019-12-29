@@ -6,14 +6,14 @@ main().catch(error => {
 })
 
 async function main() {
-  const { issues } = new github.GitHub(process.env.GITHUB_TOKEN);
+  const client = new github.GitHub(process.env.GITHUB_TOKEN);
 
-  await issues.createComment({
+  await client.issues.createComment({
     issue_number: github.context.payload.pull_request.number,
     body: "Test Comment",
     owner: "bradenhs",
     repo: "npm-release-test"
  });
 
-  console.log("Did comment")
+  console.log("Did comment");
 }
