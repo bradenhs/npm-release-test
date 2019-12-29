@@ -8,6 +8,7 @@ jobs:
       matrix:
         action: ['unit-test', 'integration-test', 'lint', 'build']
     runs-on: ubuntu-latest
+    name: ${{matrix.action}}
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
