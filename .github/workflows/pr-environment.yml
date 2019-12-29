@@ -11,7 +11,8 @@ jobs:
       with:
         node-version: 12.x
         registry: https://npm.pkg.github.com
-    - run: echo "${{secrets.GITHUB_TOKEN}}"
+    - run: ls
+    - run: npm config ls
     - run: npm publish --tag ${{github.sha}}
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
