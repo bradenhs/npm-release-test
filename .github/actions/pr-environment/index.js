@@ -10,7 +10,8 @@ async function main() {
 
   await issues.createComment({
     issue_number: github.context.payload.pull_request.number,
-    body: "Test Comment"
+    body: "Test Comment",
+    owner: "TypeRouteBot"
  });
 
   console.log("Did comment")
