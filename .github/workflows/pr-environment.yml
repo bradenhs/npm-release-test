@@ -15,3 +15,8 @@ jobs:
     - run: npm publish --tag ${{github.head_ref}}
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - uses: unsplash/comment-on-pr@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        msg: "Install publish preview with npm install @bradenhs/npm-release-test@${{github.head_ref}}"
