@@ -11,7 +11,8 @@ async function main() {
   await issues.createComment({
     issue_number: github.context.payload.pull_request.number,
     body: "Test Comment",
-    owner: "TypeRouteBot"
+    owner: "bradenhs",
+    repo: "npm-release-test"
  });
 
   console.log("Did comment")
