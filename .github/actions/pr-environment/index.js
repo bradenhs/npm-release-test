@@ -6,7 +6,7 @@ main().catch(error => {
 })
 
 async function main() {
-  const { issues } = new github.GitHub();
+  const { issues } = new github.GitHub(process.env.GITHUB_TOKEN);
 
   await issues.createComment({
     issue_number: github.context.payload.pull_request.number,
