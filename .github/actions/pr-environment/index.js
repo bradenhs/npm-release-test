@@ -2,6 +2,8 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const codesandbox = require("codesandbox");
 
+console.log(Object.keys(codesandbox));
+
 main().catch(error => {
   core.setFailed(error.message);
 });
