@@ -1,41 +1,18 @@
-name: Check
+name: check
 
 on: push
 
 jobs:
-  unit-test:
+  check:
+    strategy:
+      matrix:
+        action: ['unit-test', 'integration-test', 'lint', 'build']
     runs-on: ubuntu-latest
+    name: ${{matrix.action}}
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - run: npm install
-    - run: npm run unit-test
-  integration-test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm install
-    - run: npm run integration-test
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm install
-    - run: npm run lint
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm install
-    - run: npm run build
+    - run: npm run ${{matrix.action}}
