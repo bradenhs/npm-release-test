@@ -1,6 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const codesandbox = require("codesandbox");
+const codesandbox = require("codesandbox/lib/api/define");
 
 console.log(Object.keys(codesandbox));
 
