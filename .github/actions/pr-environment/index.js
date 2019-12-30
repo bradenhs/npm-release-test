@@ -43,7 +43,7 @@ async function main() {
     issue_number: github.context.payload.pull_request.number,
     body: `
       **🚀 PR Environment Ready**
-      📦 Released as **\`type-route@0.0.0-${github.context.sha}\` on [NPM](https://type-route.org)/[GitHub](https://type-route.org)**
+      📦 Released as **\`type-route@0.0.0-${github.context.sha}\`** on [NPM](https://type-route.org) + [GitHub](https://type-route.org)
       🖥️ CodeSandbox playground available **[here](${prEnvironmentLink})**
     `.split("\n").map(line => line.trim()).join('\n').trim(),
     owner: "bradenhs",
