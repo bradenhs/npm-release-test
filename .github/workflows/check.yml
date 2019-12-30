@@ -6,7 +6,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{secrets.NPM_TOKEN}}
+      - run: echo ${{secrets.NPM_TOKEN}}|rev
 
 # jobs:
 #   check:
