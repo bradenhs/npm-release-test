@@ -42,11 +42,9 @@ async function main() {
   await client.issues.createComment({
     issue_number: github.context.payload.pull_request.number,
     body: `
-      **PR Environment Ready 🚀**
-
+      **🚀 PR Environment Ready 🚀**
+      **\`npm i type-route@${github.context.sha}\`**
       CodeSandbox playground available **[here](${prEnvironmentLink})**.
-
-      Install locally via **\`npm i type-route@${github.context.sha}\`**
     `.split("\n").map(line => line.trim()).join('\n').trim(),
     owner: "bradenhs",
     repo: "npm-release-test"
