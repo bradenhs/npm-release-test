@@ -46,7 +46,7 @@ async function main() {
 
       CodeSandbox playground available **[here](${prEnvironmentLink})**.
 
-      Install locally via **\`npm i type-route@${github.context.ref}\`** or **\`npm i type-route@${github.context.sha}\`**
+      Install locally via **\`npm i type-route@${github.context.sha}\`**
     `.split("\n").map(line => line.trim()).join('\n').trim(),
     owner: "bradenhs",
     repo: "npm-release-test"
