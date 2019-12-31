@@ -11,7 +11,12 @@ main().catch(error => {
 async function main() {
   const client = new github.GitHub(process.env.GITHUB_TOKEN);
 
-  console.log(readFiles("./src"));
+  const files = readFiles("./src");
+  const prEnvFiles = {};
+
+  Object.keys(files).forEach(fileName => {
+    prEnvFiles[fileName.slice(__dirname.length, -1)] = files[fileName];
+  });
 
   const prEnvironmentLink =
     "https://codesandbox.io/api/v1/sandboxes/define?parameters=" +
@@ -47,8 +52,8 @@ async function main() {
     issue_number: github.context.payload.pull_request.number,
     body: `
       **🚀 PR Environment Ready**
-      📦 Released as **\`type-route@0.0.0-${github.context.sha}\`** on [NPM](https://type-route.org)
       🖥️ CodeSandbox playground available **[here](${prEnvironmentLink})**
+      ${Object.keys(prEnvFiles).join("\n")}
     `.split("\n").map(line => line.trim()).join('\n').trim(),
     owner: "bradenhs",
     repo: "npm-release-test"
