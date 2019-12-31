@@ -18,6 +18,9 @@ async function main() {
     prEnvFiles[fileName.slice(__dirname.length, -1)] = files[fileName];
   });
 
+  console.log(files);
+  console.log(prEnvFiles);
+
   const prEnvironmentLink =
     "https://codesandbox.io/api/v1/sandboxes/define?parameters=" +
     codesandbox.getParameters({
