@@ -15,7 +15,9 @@ async function main() {
   const prEnvFiles = {};
 
   Object.keys(files).forEach(fileName => {
-    prEnvFiles[fileName.slice(__dirname.length)] = files[fileName];
+    const prEnvFileName = fileName.replace(__dirname, "type-route");
+    console.log({ fileName, prEnvFileName, __dirname })
+    prEnvFiles[prEnvFileName] = files[fileName];
   });
 
   console.log(files);
