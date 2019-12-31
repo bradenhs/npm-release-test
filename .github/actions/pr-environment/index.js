@@ -15,7 +15,7 @@ async function main() {
   const prEnvFiles = {};
 
   Object.keys(files).forEach(fileName => {
-    prEnvFiles[fileName.slice(__dirname.length, -1)] = files[fileName];
+    prEnvFiles[fileName.slice(__dirname.length)] = files[fileName];
   });
 
   console.log(files);
