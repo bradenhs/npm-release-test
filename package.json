@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "tsc",
     "unit-test": "echo \"unit test\"",
     "integration-test": "echo \"integration test\"",
     "lint": "echo \"lint\"",

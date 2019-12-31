@@ -1,6 +1,8 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const codesandbox = require("codesandbox/lib/api/define");
+const fs = require("fs");
+const path = require("path");
 
 main().catch(error => {
   core.setFailed(error.message);
@@ -8,6 +10,8 @@ main().catch(error => {
 
 async function main() {
   const client = new github.GitHub(process.env.GITHUB_TOKEN);
+
+  console.log(readFiles("./src"));
 
   const prEnvironmentLink =
     "https://codesandbox.io/api/v1/sandboxes/define?parameters=" +
@@ -49,4 +53,23 @@ async function main() {
     owner: "bradenhs",
     repo: "npm-release-test"
   });
+}
+
+function readFiles(directory) {
+  const fileNameCollection = fs.readdirSync(directory);
+  const files = {};
+
+  for (const fileName of fileNameCollection) {
+    const filePath = path.resolve(directory, fileName);
+
+    const stat = fs.statSync(filePath);
+
+    if (stat.isFile()) {
+      files[filePath] = fs.readFileSync(filePath).toString();
+    } else {
+      Object.assign(files, readFiles(filePath));
+    }
+  }
+
+  return files;
 }
