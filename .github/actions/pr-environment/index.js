@@ -15,8 +15,8 @@ async function main() {
   const prEnvFiles = {};
 
   Object.keys(files).forEach(fileName => {
-    const prEnvFileName = fileName.replace(__dirname, "type-route");
-    console.log({ fileName, prEnvFileName, __dirname })
+    const prEnvFileName = fileName.replace(process.cwd(), "type-route");
+    console.log({ fileName, prEnvFileName, cwd: process.cwd() })
     prEnvFiles[prEnvFileName] = files[fileName];
   });
 
